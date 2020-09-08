@@ -15,7 +15,7 @@ public class BookDaolmlp implements BookDao {
 			+ " values (?, ?)";
 	private String DELETE_BOOK_BY_ID = "delete from book where id = ?";
 	private String GET_BOOK_BY_ID = "select * from book where id = ?";
-	private String UPDATE_BOOK = "update book set name = ?, price = ? where id = ?";
+	private String UPDATE_BOOK = "update book set name = ? , price = ? where id = ?";
 	
 	BookDaolmlp(Connection connection) {
 		this.connection = connection;
@@ -36,7 +36,6 @@ public class BookDaolmlp implements BookDao {
 		preparedStatement = connection.prepareStatement(ADD_BOOK);
 		preparedStatement.setString(1, book.getName());
 		preparedStatement.setInt(2, book.getPrice());
-		preparedStatement.setInt(3, book.getId());
 		preparedStatement.executeUpdate();
 	}
 		
@@ -63,6 +62,7 @@ public class BookDaolmlp implements BookDao {
 		preparedStatement = connection.prepareStatement(UPDATE_BOOK);
 		preparedStatement.setString(1, book.getName());
 		preparedStatement.setInt(2, book.getPrice());
+		preparedStatement.setInt(3, book.getId());
 		preparedStatement.executeUpdate();
 	}
 	

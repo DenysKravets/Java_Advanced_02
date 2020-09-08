@@ -25,7 +25,10 @@ public class Main {
 		
 		System.out.println();
 		
-		bookDao.updateBook(new Book(1, "selamat malam", 134));
+		bookDao.updateBook(new Book(10, "selamat malam", 134));
+		
+		bookDao.getAllBooks().stream().forEach(System.out::println);
+		System.out.println();
 		
 		bookDao.deleteBookById(1);
 		
