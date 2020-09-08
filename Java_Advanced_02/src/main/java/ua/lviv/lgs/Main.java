@@ -21,6 +21,12 @@ public class Main {
 		bookDao.getAllBooks().stream().forEach(System.out::println);
 		System.out.println();
 		
+		System.out.println(bookDao.getBookById(1));
+		
+		System.out.println();
+		
+		bookDao.updateBook(new Book(1, "selamat malam", 134));
+		
 		bookDao.deleteBookById(1);
 		
 		bookDao.getAllBooks().stream().forEach(System.out::println);
